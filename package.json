@@ -1,16 +1,16 @@
 {
   "name": "es2015-mixin",
   "version": "1.0.0",
-  "description": "A mixin utility for es2015",
-  "main": "index.js",
+  "description": "A mixin utility for es2015.",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --compilers js:babel/register"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "babel-cli": "^6.1.4",
+    "babel": "^5.0.12",
     "chai": "^3.4.1",
-    "mocha": "^2.3.3"
+    "mocha": "^2.2.4"
   }
 }

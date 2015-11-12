@@ -1,4 +1,6 @@
-import mixin from '../lib/mixin';
+var chai = require('chai');
+var mixin = require('../lib').mixin;
+
 class Foo {
   constructor() {
     this.bar = true;
