@@ -6,8 +6,19 @@
   "scripts": {
     "test": "mocha --compilers js:babel/register"
   },
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jimenglish81/es2015-mixin.git"
+  },
+  "keywords": [
+    "class",
+    "composition",
+    "es2015",
+    "es6",
+    "mixin"
+  ],
+  "author": "Jim English <jimenglish81@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
     "babel": "^5.0.12",
     "chai": "^3.4.1",
