@@ -1,4 +1,4 @@
-# A Mixin utility to be used with es6 Classes
+# Mixins for es6 Classes
 
 ## Installation
 
