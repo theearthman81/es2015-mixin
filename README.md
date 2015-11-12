@@ -1,5 +1,7 @@
 # Mixins for es6 Classes
 
+[![Build Status](https://travis-ci.org/jimenglish81/es2015-mixin.svg?branch=master)](https://travis-ci.org/jimenglish81/es2015-mixin)
+
 ## Installation
 
 ```
