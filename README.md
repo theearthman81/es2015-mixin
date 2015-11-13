@@ -14,7 +14,7 @@ The utility can be used to mixin both properties and methods as shown below.
 A new Class will be returned, so the original class will not be mutated.
 
 ```js
-import mixin from 'es20150-mixin';
+import mixin from 'es2015-mixin';
 
 class Foo {
   constructor() {
