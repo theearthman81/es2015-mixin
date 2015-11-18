@@ -26,6 +26,15 @@ describe('mixin', () => {
     chai.assert.equal(foo.qux(), 'qux');
   });
 
+  it('ignores \'constructor\' property if present', () => {
+    let Mixed = mixin(Foo, {
+      constructor: true
+    });
+    let foo = new Mixed();
+
+    chai.assert.notEqual(foo.constructor, true);
+  });
+
   it('mixes in multiple functionality', () => {
     let Mixed = mixin(Foo, {
         baz: true,
