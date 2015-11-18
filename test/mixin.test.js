@@ -1,13 +1,17 @@
 var chai = require('chai');
 var mixin = require('../lib').mixin;
+var mixinExtend = require('../lib').mixinExtend;
 
 class Foo {
   constructor() {
     this.bar = true;
   }
+  existingMethod() {
+    return 'existing';
+  }
 }
 
-describe('Mixin', () => {
+describe('mixin', () => {
   it('mixes in functionality', () => {
     let Mixed = mixin(Foo, {
       baz: true,
@@ -25,7 +29,7 @@ describe('Mixin', () => {
   it('mixes in multiple functionality', () => {
     let Mixed = mixin(Foo, {
         baz: true,
-        qux() {
+        existingMethod() {
           return 'qux';
         }
       },
@@ -42,5 +46,44 @@ describe('Mixin', () => {
     chai.assert.equal(foo.baz, true);
     chai.assert.equal(foo.foo, false);
     chai.assert.equal(foo.qux(), 'not qux');
+  });
+});
+
+describe('mixinExtend', () => {
+  it('wraps existing method to run new and old while returning old', () => {
+    let Mixed = mixinExtend(Foo, {
+      bar: true,
+      existingMethod() {
+        this.bar = false;
+      }
+    });
+    let foo = new Mixed();
+
+    chai.assert.equal(foo.bar, true);
+    chai.assert.equal(foo.existingMethod(), 'existing');
+    chai.assert.equal(foo.bar, false);
+  });
+
+  it('wraps existing method when mutliple mixins used', () => {
+    let Mixed = mixinExtend(Foo, {
+        bar: true,
+        existingMethod() {
+          this.bar = false;
+        }
+      },
+      {
+        qux: true,
+        existingMethod() {
+          this.qux = false;
+        }
+      }
+    );
+    let foo = new Mixed();
+
+    chai.assert.equal(foo.bar, true);
+    chai.assert.equal(foo.qux, true);
+    chai.assert.equal(foo.existingMethod(), 'existing');
+    chai.assert.equal(foo.bar, false);
+    chai.assert.equal(foo.qux, false);
   });
 });
