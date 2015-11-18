@@ -4,6 +4,7 @@
   "description": "A mixin utility for es2015.",
   "main": "lib/index.js",
   "scripts": {
+    "pretest": "jshint lib/index.js --config ./.jshintrc",
     "test": "mocha --compilers js:babel/register"
   },
   "repository": {
