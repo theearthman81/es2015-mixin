@@ -56,6 +56,14 @@ describe('mixin', () => {
     chai.assert.equal(foo.foo, false);
     chai.assert.equal(foo.qux(), 'not qux');
   });
+
+  it('can handle no mixins being supplied', () => {
+    let Mixed = mixin(Foo);
+    let foo = new Mixed();
+
+    chai.assert.equal(foo.bar, true);
+    chai.assert.equal(foo.existingMethod(), 'existing');
+  });
 });
 
 describe('mixinExtend', () => {

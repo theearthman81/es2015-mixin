@@ -59,7 +59,7 @@ let Mixed = mixin(Foo, {
 let foo = new Mixed();
 ```
 
-A more advanced usages is to use the `mixinExtend` function to allow old methods to not be replaced,
+A more advanced usage is to use the `mixinExtend` function to allow old methods to not be replaced,
 but wrapped so the mixin(s) method will be called then the original method afterwards. The return value of the
 method will remain unchanged.
 
